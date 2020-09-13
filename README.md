@@ -13,3 +13,9 @@
 `npm run buil` - To creat the production build for deploy
 
 `firebase deploy` - To deploy the Application
+
+
+## Technology
+    - ReactJS
+    - Gulp
+    - ITCSS (each component have a processed CSS file)

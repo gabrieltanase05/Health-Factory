@@ -1,5 +1,5 @@
 //Need to check the localStorage for a token to see
-//if the user have been logged befor and have an account !!!!!!
+//if the user have been logged before and have an account !!!!!!
 
 //And for isTrainer value
 export const initialState = {

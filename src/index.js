@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App /App";
 import * as serviceWorker from "./serviceWorker";
-import { StateProvider } from "./StateProvider";
+import { StateProvider } from "./state_provider/StateProvider";
 import "./style/Main/main.min.css";
 import reducer, { initialState } from "./reducer/reducer";
 ReactDOM.render(
   <React.StrictMode>
+    {/* Set the context provider for states */}
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>

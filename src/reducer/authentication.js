@@ -3,26 +3,31 @@
 
 //And for isTrainer value
 export const initialState = {
-  isToken: false,
+  isToken: false, //default - false
   isTrainer: false,
 };
 
-const reducer = (state, action) => {
+const authentication = (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
-    case "CHANGE_TOKEN":
+    case "SET_TOKEN":
       return {
         ...state,
         isToken: action.value,
       };
-    case "CHANGE_TRAINER":
+    case "SET_TRAINER":
       return {
         ...state,
         isTrainer: action.value,
       };
+      case "ADD_USER":
+        return {
+          ...state,
+          ...action.value
+        }
     default:
       return state;
   }
 };
 
-export default reducer;
+export default authentication;

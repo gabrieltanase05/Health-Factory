@@ -1,0 +1,104 @@
+.c-LoginSignup {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__form {
+		height: 25%;
+		width: 25%;
+		border: 1px solid grey;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__switcher {
+		position: relative;
+		width: 200px;
+		height: 50px;
+		border-radius: 25px;
+		margin: 20px 0;
+
+		input {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+
+			position: relative;
+			width: 200px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: #000;
+			outline: none;
+			&:before,
+			&:after {
+				z-index: 2;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				color: #fff;
+				font-weight: 800;
+			}
+			&:before {
+				content: "LOGIN";
+				left: 20px;
+			}
+			&:after {
+				content: "SIGNUP";
+				right: 20px;
+			}
+		}
+		label {
+			z-index: 1;
+			position: absolute;
+			top: 10px;
+			bottom: 10px;
+			border-radius: 20px;
+		}
+	}
+	&__switcherContainer {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.c-LoginSignup__switcher {
+		input {
+			transition: 0.25s -0.1s;
+			&:checked {
+				background-color: #000;
+				&:before {
+					color: grey;
+					transition: color 0.5s 0.2s;
+				}
+				&:after {
+					color: #000;
+					transition: color 0.5s;
+				}
+				& + label {
+					left: 100px;
+					right: 10px;
+					background: #fff;
+					transition: left 0.4s 0.2s, right 0.5s, color 0.35s -0.1s;
+				}
+			}
+			&:not(:checked) {
+				background: #000;
+				transition: color 0.5s -0.1s;
+				&:before {
+					color: #000;
+					transition: color 0.5s;
+				}
+				&:after {
+					color: grey;
+					transition: color 0.5s 0.2s;
+				}
+				& + label {
+					left: 10px;
+					right: 100px;
+					background: #fff;
+					transition: left 0.5s, right 0.4s 0.2s;
+				}
+			}
+		}
+	}
+}

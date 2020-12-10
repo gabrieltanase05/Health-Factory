@@ -1,10 +1,11 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom';
-import { useStateValue } from "../state_provider/StateProvider";
+import { useSelector } from "react-redux";
 
 
 function ProtectedRoute({component: Component, ...rest}) {
-    const [{ isToken }] = useStateValue();
+    const isToken = useSelector(state => state.isToken);
+    
     return (
         <Route { ...rest } render={
             (props) => {

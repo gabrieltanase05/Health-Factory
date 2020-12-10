@@ -2,15 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App /App";
 import * as serviceWorker from "./serviceWorker";
-import { StateProvider } from "./state_provider/StateProvider";
 import "./style/Main/main.min.css";
-import reducer, { initialState } from "./reducer/reducer";
+import { createStore }  from 'redux';
+import { Provider } from 'react-redux'
+import authentication from './reducer/authentication.js';
+
+//Create the Store
+const store = createStore(authentication, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* Set the context provider for states */}
-    <StateProvider initialState={initialState} reducer={reducer}>
+    {/* Set the provider with the store*/}
+    <Provider store={store}>
       <App />
-    </StateProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

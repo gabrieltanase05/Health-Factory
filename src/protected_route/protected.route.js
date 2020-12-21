@@ -1,11 +1,9 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 
+function ProtectedRoute({isToken, component: Component, ...rest}) {
 
-function ProtectedRoute({component: Component, ...rest}) {
-    const isToken = useSelector(state => state.isToken);
-    
     return (
         <Route { ...rest } render={
             (props) => {
@@ -24,4 +22,12 @@ function ProtectedRoute({component: Component, ...rest}) {
     )
 }
 
-export default ProtectedRoute
+// Redux middleware
+const mapStateToProps = (state) => {
+    return {
+      isToken: state.authentication.isToken
+    }
+  }
+
+  
+export default connect(mapStateToProps)(ProtectedRoute)

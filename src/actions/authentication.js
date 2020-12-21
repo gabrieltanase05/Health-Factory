@@ -1,3 +1,4 @@
+// Redux actions
 
 export const setToken = (token) => {
     return {
@@ -13,9 +14,16 @@ export const setTrainer = (isTrainer) => {
     }
 }
 
-export const addUser = (user) => {
+export const setUser = (user) => {
     return {
-        type: "ADD_USER",
-        value: {...user}
+        type: "SET_USER",
+        value: user
+    }
+}
+
+export const setLoading = (value) => {
+    return {
+        type: "SET_LOADING",
+        value: value
     }
 }
